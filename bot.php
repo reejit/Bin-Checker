@@ -64,32 +64,13 @@ Use*** `/bin xxxxx` ***to check bin on bin-su.***",
  }if(strpos($text,"/bin") !== false){ 
 $bin = trim(str_replace("/bin","",$text)); 
 
-$data = json_decode(file_get_contents("https://bins-su-api.now.sh/api/$bin"),true);
-$bank = $data['data']['bin'];
-$vendor =  $data['data']['vendor'];
-$type =  $data['data']['type'];
-$level =  $data['data']['level'];
-$bank =  $data['data']['bank'];
-$country =  $data['data']['country'];
+$data = file_get_contents("https://bins-su-api.now.sh/api/$bin"),true);
 
  if($data['data']){
 bot('sendmessage', [
                 'chat_id' =>$chat_id,
                 'text' =>"***VALID BIN✅
-               
-➤ Bɪɴ : $bin
-
-➤ Tʏᴘᴇ : $type
-
-➤ Bʀᴀɴᴅ : $vendor
-
-➤ Bᴀɴᴋ : $bank
-
-➤ Cᴏᴜɴᴛʀʏ : $country
-
-➤ Cʀᴇᴅɪᴛ/Dᴇʙɪᴛ : $type
-
-🔺BIN CHECKED FROM DATABASE OF BIN-SU🔻***",
+                $data***",
 'parse_mode'=>"MarkDown",
 ]);
     }
